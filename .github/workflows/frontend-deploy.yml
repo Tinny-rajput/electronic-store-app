@@ -1,0 +1,15 @@
+# Simplified for inclusion, referencing secrets for Vercel/Netlify deployment...
+name: Deploy Frontend
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'frontend/**' ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # ... steps for setting up Node, installing, and building ...
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        # Secrets for VERCEL_TOKEN, VERCEL_PROJECT_ID, etc. needed here
