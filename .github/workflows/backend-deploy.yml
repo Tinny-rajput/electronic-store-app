@@ -1,0 +1,15 @@
+# Simplified for inclusion, demonstrating Docker build...
+name: Deploy Backend
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'backend/**' ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # ... steps to configure AWS credentials ...
+      - name: Build and Push Docker image
+        run: docker build -t backend-image backend/
+      # ... steps to deploy the image to ECS, Cloud Run, etc.
